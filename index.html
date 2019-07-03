@@ -6,11 +6,11 @@
     <link href="styles/style.css" rel="stylesheet">
 </head>
 <body>
-<table id="table">
+<table id="table" style="display: inline-block">
     <tr id="row1" class="table-row"></tr>
 </table>
-<button onclick="addRow()">addrow</button>
-<button onclick="addColumn()">addcolumn</button>
+<button style="position: absolute" onclick="addColumn()">addColumn</button>
+<button onclick="addRow()" style="display: block; width: 50px;height: 50px">addrow</button>
 <button onclick="removeRow(y)">removerow</button>
 <button onclick="removeColumn(x)">removeColumn</button>
 </body>

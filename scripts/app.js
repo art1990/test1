@@ -45,11 +45,13 @@ const addRow = () => {
 
 
 const addColumn = () => {
+    let numberColumnCurrent = numberColumn()+1
     const arr = document.querySelectorAll(".table-row");
     for (let i = 0; i < arr.length; i++) {
         let cell = document.createElement('td');
         cell.className = "cell";
-        cell.id = numberColumn() + 1;
+        cell.id ="column" + numberColumnCurrent.toString();
+        console.log(cell.id)
         arr[i].appendChild(cell)
     }
 };
@@ -57,10 +59,10 @@ const addColumn = () => {
 
 const removeRow = (y) => y.parentNode.removeChild(y);
 const removeColumn = (x) => {
-    x = "#" + x
+    x = "#" + x.id;
     let arr = document.querySelectorAll(x);
-    console.log(arr)
-    for(let i in arr) {
+    for(let i=0; i < arr.length; i++) {
         arr[i].parentNode.removeChild(arr[i])
     }
-}
+
+};

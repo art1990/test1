@@ -1,5 +1,66 @@
+.content {
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    grid-template-columns: 70px 1fr auto;
+    position: fixed;
+
+}
+
+
 .cell {
     background-color: blue;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
+}
+
+.btn {
+        background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    background-color: aquamarine;
+    font-size: 30px;
+    color: white;
+}
+
+.btn-add-column {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    margin-top: 3px;
+    
+}
+
+.btn-add-row {
+    grid-column: 2/3;
+    grid-row: 3/4;
+    margin-left: 3px;
+}
+
+.btn-remove-row {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    margin-top: 3px;
+    display: none;
+}
+
+.btn-remove-column {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    margin-left: 3px;
+    display: none;
+}
+
+#table {
+    grid-column: 2/3;
+    grid-row:   2/3;
+}
+
+#table:hover ~ .btn-remove-row, #table:hover > .btn-remove-column {
+    display: inline-block;
 }

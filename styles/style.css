@@ -1,9 +1,8 @@
 .content {
     display: grid;
     grid-template-rows: 1fr auto 1fr;
-    grid-template-columns: 70px 1fr auto;
+    grid-template-columns: 72px 1fr auto;
     position: fixed;
-
 }
 
 
@@ -14,53 +13,78 @@
 }
 
 .btn {
-        background: none;
-	color: inherit;
 	border: none;
 	padding: 0;
-	font: inherit;
+    position: relative;
 	cursor: pointer;
-	outline: inherit;
     width: 70px;
     height: 70px;
-    position: relative;
     background-color: aquamarine;
     font-size: 30px;
     color: white;
+
 }
 
 .btn-add-column {
     grid-column: 3/4;
     grid-row: 2/3;
-    margin-top: 3px;
+    margin: 3px 0 0 2px;
     
 }
 
 .btn-add-row {
     grid-column: 2/3;
     grid-row: 3/4;
-    margin-left: 3px;
+    margin:2px 0 0 3px;
+}
+
+.btn-remove {
+    position: relative;
+    visibility: hidden;
+    transition: visibility 0s linear 0.1s;
 }
 
 .btn-remove-row {
     grid-column: 1/2;
     grid-row: 2/3;
-    margin-top: 3px;
-    display: none;
+    margin: 3px 0 0 0;
+
+
+
 }
 
 .btn-remove-column {
     grid-column: 2/3;
     grid-row: 1/2;
-    margin-left: 3px;
-    display: none;
+    margin:0 0 0 3px;
 }
 
 #table {
     grid-column: 2/3;
     grid-row:   2/3;
+    border: 1px solid black;
 }
 
-#table:hover ~ .btn-remove-row, #table:hover > .btn-remove-column {
-    display: inline-block;
+#table:hover ~ .btn-remove-row, #table:hover ~ .btn-remove-column {
+    visibility: visible;
+
+
+}
+
+.btn-remove-row:hover, .btn-remove-column:hover {
+    visibility: visible;
+}
+
+.btn-remove-row:hover ~ .btn-remove-column {
+    visibility: visible;
+}
+
+.cell:hover ~ .btn-remove-row {
+    transform: translate(200px, 0);
+    visibility: visible;
+
+}
+
+.btn-remove-row-hover {
+    visibility: visible;
 }

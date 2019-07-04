@@ -6,15 +6,17 @@
     <link href="styles/style.css" rel="stylesheet">
 </head>
 <body class="body">
-<div class="content">   
-<table id="table" style="display: inline-block">
-    <tr id="row1" class="table-row"></tr>
-</table>
-<button class="btn-add-column btn " onclick="addColumn()">+</button>
-<button class="btn-add-row btn"onclick="addRow()">+</button>
-<button class="btn-remove-row btn" onclick="removeRow(y)">-</button>
-<button class="btn-remove-column btn" onclick="removeColumn(x)">-</button>
-</div> 
+<div class="content">
+    <table id="table" style="display: inline-block">
+        <tr id="row1" class="table-row"></tr>
+    </table>
+    <button class="btn-add-column btn " onclick="addColumn()">+</button>
+    <button class="btn-add-row btn" onclick="addRow()">+</button>
+    <button class="btn-remove-row btn btn-remove" onclick="removeRow(y)">-</button>
+    <button class="btn-remove-column btn btn-remove" onclick="removeColumn(x)">-</button>
+
+
+</div>
 </body>
 <script src="scripts/app.js"></script>
 </html>

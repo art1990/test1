@@ -7,7 +7,7 @@
 
 
 .cell {
-    background-color: blue;
+    background-color: #46ace7;
     width: 70px;
     height: 70px;
 }
@@ -19,17 +19,25 @@
 	cursor: pointer;
     width: 70px;
     height: 70px;
-    background-color: aquamarine;
     font-size: 30px;
     color: white;
 
 }
 
+.btn-add {
+    background-color: #f3a700;
+}
+
+.btn-add:target {
+    border: 1px solid #46ace7;
+}
+
+
 .btn-add-column {
     grid-column: 3/4;
     grid-row: 2/3;
     margin: 3px 0 0 2px;
-    
+       
 }
 
 .btn-add-row {
@@ -41,28 +49,35 @@
 .btn-remove {
     position: relative;
     visibility: hidden;
-    transition: visibility 0s linear 0.1s;
+    background-color: #b40000;
 }
 
 .btn-remove-row {
     grid-column: 1/2;
     grid-row: 2/3;
     margin: 3px 0 0 0;
-
-
-
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 .btn-remove-column {
     grid-column: 2/3;
     grid-row: 1/2;
     margin:0 0 0 3px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 #table {
     grid-column: 2/3;
     grid-row:   2/3;
-    border: 1px solid black;
+    border: 1px solid #46ace7;
 }
 
 #table:hover ~ .btn-remove-row, #table:hover ~ .btn-remove-column {
@@ -73,18 +88,15 @@
 
 .btn-remove-row:hover, .btn-remove-column:hover {
     visibility: visible;
+    background-color: #cb4b47;
 }
 
 .btn-remove-row:hover ~ .btn-remove-column {
     visibility: visible;
 }
 
-.cell:hover ~ .btn-remove-row {
-    transform: translate(200px, 0);
-    visibility: visible;
-
-}
-
 .btn-remove-row-hover {
     visibility: visible;
 }
+
+/*#f6c151*/

@@ -4,15 +4,15 @@ const tableColumn = (arg) => document.getElementsByClassName(arg);
 const tableRow = (arg) => document.getElementById(arg);
 const btnRColumn = document.getElementsByClassName("btn-remove-column")[0];
 const btnRemoveRow = document.getElementsByClassName("btn-remove-row")[0];
-let x, y, movX, movY;
+let x, y; 
+let cursorX, cursorY;
+const findElement = (x=cursorX, y=cursorY) => document.elementFromPoint(x, y);
 
 
 const myAddListener = (div) => {
     div.addEventListener('mouseover', (e) => {
         x = e.target;
         y = x.parentNode;
-        movX = event.clientX;
-        movY = event.clientY;
         btnRColumn.style.left = (x.offsetLeft).toString() + "px";
         btnRemoveRow.style.top = (y.offsetTop).toString() + "px";
     });
@@ -32,7 +32,7 @@ const createTable = (col=4, row=4) => {
         let row = document.getElementsByClassName("table-row")[0].cloneNode(true);
         myAddListener(row);
         row.id = "row" + (numberRow() + 1);
-        tableRow("table").appendChild(row)
+        tableRow("table-body").appendChild(row)
     }
 };
 
@@ -50,14 +50,19 @@ const addColumn = () => {
         cell.className = "cell";
         cell.id ="column" + numberColumnCurrent.toString();
         arr[i].appendChild(cell)
+        myAddListener(cell)
     }
 };
 
 
-const removeRow = (y) => y.parentNode.removeChild(y);
+//const removeRow = (y) => y.parentNode.removeChild(y);
 
-const removeColumn = (x) => {
-    x = "#" + x.id;
+const removeRow = () => {
+    let elem = findElement(x=cursorX + 70).parentNode
+    elem.parentNode.removeChild(elem)};
+
+const removeColumn = () => {
+    x = "#" + findElement(undefined, y=cursorY + 70).id;
     let arr = document.querySelectorAll(x);
     for(let i=0; i < arr.length; i++) {
         arr[i].parentNode.removeChild(arr[i])
@@ -68,3 +73,7 @@ const removeColumn = (x) => {
 
 btnRColumn.addEventListener("mouseover", () => btnRemoveRow.classList.toggle("btn-remove-row-hover"));
 btnRColumn.addEventListener("mouseout", () => btnRemoveRow.classList.toggle("btn-remove-row-hover"));
+
+btnRColumn.addEventListener("mouseover", (event) => {cursorX = event.clientX; cursorY = event.clientY});
+btnRemoveRow.addEventListener("mouseover", (event) => {cursorX = event.clientX; cursorY = event.clientY});
+

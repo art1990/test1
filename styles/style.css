@@ -5,6 +5,15 @@
     position: fixed;
 }
 
+#table {
+    grid-column: 2/3;
+    grid-row:   2/3;
+    border: 2px solid #46ace7;
+}
+
+#table:hover ~ .btn-remove-row, #table:hover ~ .btn-remove-column {
+    visibility: visible;
+}
 
 .cell {
     background-color: #46ace7;
@@ -13,37 +22,34 @@
 }
 
 .btn {
-	border: none;
-	padding: 0;
+    border: none;
+    padding: 0;
     position: relative;
-	cursor: pointer;
+    cursor: pointer;
     width: 70px;
     height: 70px;
     font-size: 30px;
     color: white;
-
 }
 
 .btn-add {
     background-color: #f3a700;
 }
 
-.btn-add:target {
-    border: 1px solid #46ace7;
+.btn-add:hover {
+    background-color: #f6c151;
 }
-
 
 .btn-add-column {
     grid-column: 3/4;
     grid-row: 2/3;
-    margin: 3px 0 0 2px;
-       
+    margin: 4px 0 0 2px;
 }
 
 .btn-add-row {
     grid-column: 2/3;
     grid-row: 3/4;
-    margin:2px 0 0 3px;
+    margin:2px 0 0 4px;
 }
 
 .btn-remove {
@@ -55,35 +61,21 @@
 .btn-remove-row {
     grid-column: 1/2;
     grid-row: 2/3;
-    margin: 3px 0 0 0;
+    margin: 2px 0 0 0;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
-    -ms-transition: all 0.3s;
     transition: all 0.3s;
 }
 
 .btn-remove-column {
     grid-column: 2/3;
     grid-row: 1/2;
-    margin:0 0 0 3px;
+    margin:0 0 0 2px;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -o-transition: all 0.3s;
-    -ms-transition: all 0.3s;
     transition: all 0.3s;
-}
-
-#table {
-    grid-column: 2/3;
-    grid-row:   2/3;
-    border: 1px solid #46ace7;
-}
-
-#table:hover ~ .btn-remove-row, #table:hover ~ .btn-remove-column {
-    visibility: visible;
-
-
 }
 
 .btn-remove-row:hover, .btn-remove-column:hover {
@@ -99,4 +91,44 @@
     visibility: visible;
 }
 
-/*#f6c151*/
+button:focus {
+    outline: 2px solid #46ace7;
+    outline-offset: 2px;
+}
+
+
+#table:hover ~ .btn-remove-row-one1 {
+    visibility: hidden;
+}
+
+
+
+.btn-remove-row-one:hover {
+    visibility: hidden;
+    transition: all 0s;
+}
+
+#table:hover ~ .btn-remove-row-one {
+    visibility: hidden;
+    transition: all 0s;
+}
+
+
+.btn-remove-column:hover ~ .btn-remove-row-one {
+    visibility: hidden;
+}
+
+.btn-remove-column-one:hover {
+    visibility: hidden;
+    transition: all 0s;
+}
+
+#table:hover ~ .btn-remove-column-one {
+    visibility: hidden;
+    transition: all 0s;
+}
+
+
+.btn-remove-row:hover ~ .btn-remove-column-one {
+    visibility: hidden;
+}
